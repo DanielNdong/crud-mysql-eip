@@ -30,7 +30,7 @@ if(isset($_POST["id_sesion"]))
 {
 
 	$stmt = $conexion->prepare(
-		"DELETE FROM usuarios WHERE id = :id"
+		"DELETE FROM sesiones WHERE id = :id"
 	);
 	$resultado = $stmt->execute(
 		array(

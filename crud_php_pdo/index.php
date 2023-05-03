@@ -279,7 +279,7 @@
                 })
 	        });
 
-            //Funcionalida de borrar
+            //Funcionalidad de borrar
             $(document).on('click', '.borrar', function(){
                 var id_usuario = $(this).attr("id");
                 if(confirm("Esta seguro de borrar este registro:" + id_usuario))
@@ -375,6 +375,29 @@
                     alert("Algunos campos son obligatorios");
                 }
 	    });
+
+
+            //Funcionalida de borrar
+            $(document).on('click', '.borrar', function(){
+                var id_sesion = $(this).attr("id");
+                if(confirm("Esta seguro de borrar esta sesion?:" + id_sesion))
+                {
+                    $.ajax({
+                        url:"borrar.php",
+                        method:"POST",
+                        data:{id_sesion:id_sesion},
+                        success:function(data)
+                        {
+                            alert(data);
+                            dataTable.ajax.reload();
+                        }
+                    });
+                }
+                else
+                {
+                    return false;	
+                }
+            });
 
         });         
     </script>
